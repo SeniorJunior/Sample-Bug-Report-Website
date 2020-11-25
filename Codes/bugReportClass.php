@@ -113,10 +113,11 @@ class bugReport
 	{
 		if (isset($_POST['submit'])) 
 		{
-	        $host = "mydb.c2k9br7f0jdv.ap-southeast-1.rds.amazonaws.com";
-			$dbusername = "sqldb";
-			$dbpassword = "csit314project";
-			$dbname = "mydb";
+	        $host = "some.link.to.rds";
+			$dbusername = "dbusername";
+			$dbpassword = "password";
+			$dbname = "dbname";
+		// Because MySQL Port is 3306
 	        $port = "3306";
 	        
 			$conn = mysqli_connect ($host, $dbusername, $dbpassword, $dbname, $port);
@@ -191,11 +192,12 @@ class bugReport
 	{
 		if (isset($_POST['submit'])) 
 		{
-		    $host = "mydb.c2k9br7f0jdv.ap-southeast-1.rds.amazonaws.com";
-			$dbusername = "sqldb";
-			$dbpassword = "csit314project";
-			$dbname = "mydb";
-		    $port = "3306";
+		    $host = "some.link.to.rds";
+			$dbusername = "dbusername";
+			$dbpassword = "password";
+			$dbname = "dbname";
+			// Because MySQL Port is 3306
+	        	$port = "3306";
 		    
 		   
 	        //$title = $_POST['title'];
@@ -310,10 +312,11 @@ class bugReport
 	{
 		if (isset($_POST['submitBest'])) 
 		{
-	        $host = "mydb.c2k9br7f0jdv.ap-southeast-1.rds.amazonaws.com";
-			$dbusername = "sqldb";
-			$dbpassword = "csit314project";
-			$dbname = "mydb";
+	        $host = "some.link.to.rds";
+			$dbusername = "dbusername";
+			$dbpassword = "password";
+			$dbname = "dbname";
+		// Because MySQL Port is 3306
 	        $port = "3306";
 	        
 			$con = mysqli_connect ($host, $dbusername, $dbpassword, $dbname, $port);
@@ -399,8 +402,15 @@ class bugReport
 	{
 		global $db, $bugReportUserID, $bugReportTitle, $bugReportType, $bugReportkeywords, $bugReportDesc, $bugReportStatus, $errors;
 
-		$con = mysqli_connect("mydb.c2k9br7f0jdv.ap-southeast-1.rds.amazonaws.com", "sqldb", "csit314project", "mydb");
-
+		$host = "some.link.to.rds";
+			$dbusername = "dbusername";
+			$dbpassword = "password";
+			$dbname = "dbname";
+		// Because MySQL Port is 3306
+	        $port = "3306";
+	        
+			$con = mysqli_connect ($host, $dbusername, $dbpassword, $dbname, $port);
+		
 		$new_report = new bugReport();
 		$new_report->setBugReportTitle(e($_POST['bugTitle']));
 		$new_report->setBugReportUserID($_SESSION['userID']['userID']);
@@ -470,17 +480,24 @@ class bugReport
 		$bugReportID = $view_title->getBugReportID();
 		//$bugReportID = $_POST['bugReportID'];
 		
-		$con = mysqli_connect("mydb.c2k9br7f0jdv.ap-southeast-1.rds.amazonaws.com", "sqldb", "csit314project", "mydb");
-
-		if (!$con) 
-		{
-			echo "Not Connected To Server";
-		}
+		$host = "some.link.to.rds";
+			$dbusername = "dbusername";
+			$dbpassword = "password";
+			$dbname = "dbname";
+		// Because MySQL Port is 3306
+	        $port = "3306";
+	        
+			$con = mysqli_connect ($host, $dbusername, $dbpassword, $dbname, $port);
 		
-		if (!mysqli_select_db($con, "mydb")) 
-		{
-			echo "Database Not Selected";
-		}
+			if (!$con) 
+			{
+				echo "Not Connected To Server";
+			}
+			
+			if (!mysqli_select_db($con, "mydb")) 
+			{
+				echo "Database Not Selected";
+			}
 
 		$sql = "SELECT bugReportTitle,bugReportID FROM bugReport WHERE bugReportID = '$bugReportID'";
 		$results = mysqli_query($con,$sql);
@@ -503,17 +520,24 @@ class bugReport
 
 		$bugReportID = $view_assignee->getBugReportID();
 		
-		$con = mysqli_connect("mydb.c2k9br7f0jdv.ap-southeast-1.rds.amazonaws.com", "sqldb", "csit314project", "mydb");
-
-		if (!$con) 
-		{
-			echo "Not Connected To Server";
-		}
+		$host = "some.link.to.rds";
+			$dbusername = "dbusername";
+			$dbpassword = "password";
+			$dbname = "dbname";
+		// Because MySQL Port is 3306
+	        $port = "3306";
+	        
+			$con = mysqli_connect ($host, $dbusername, $dbpassword, $dbname, $port);
 		
-		if (!mysqli_select_db($con, "mydb")) 
-		{
-			echo "Database Not Selected";
-		}
+			if (!$con) 
+			{
+				echo "Not Connected To Server";
+			}
+			
+			if (!mysqli_select_db($con, "mydb")) 
+			{
+				echo "Database Not Selected";
+			}
 
 		$sql = "SELECT bugReportAssigneeID,bugReportID,username FROM bugReport INNER JOIN user ON bugReport.bugReportAssigneeID = user.userID WHERE bugReportID = '$bugReportID'";
 		$results = mysqli_query($con,$sql);
@@ -536,17 +560,24 @@ class bugReport
 
 		$bugReportID = $view_bugReporter->getBugReportID();
 		
-		$con = mysqli_connect("mydb.c2k9br7f0jdv.ap-southeast-1.rds.amazonaws.com", "sqldb", "csit314project", "mydb");
-
-		if (!$con) 
-		{
-			echo "Not Connected To Server";
-		}
+		$host = "some.link.to.rds";
+			$dbusername = "dbusername";
+			$dbpassword = "password";
+			$dbname = "dbname";
+		// Because MySQL Port is 3306
+	        $port = "3306";
+	        
+			$con = mysqli_connect ($host, $dbusername, $dbpassword, $dbname, $port);
 		
-		if (!mysqli_select_db($con, "mydb")) 
-		{
-			echo "Database Not Selected";
-		}
+			if (!$con) 
+			{
+				echo "Not Connected To Server";
+			}
+			
+			if (!mysqli_select_db($con, "mydb")) 
+			{
+				echo "Database Not Selected";
+			}
 
 		$sql = "SELECT bugReportUserID,bugReportID,username FROM bugReport INNER JOIN user ON bugReport.bugReportUserID = user.userID WHERE bugReportID = '$bugReportID'";
 		$results = mysqli_query($con,$sql);
@@ -569,17 +600,24 @@ class bugReport
 
 		$bugReportID = $view_categories->getBugReportID();
 		
-		$con = mysqli_connect("mydb.c2k9br7f0jdv.ap-southeast-1.rds.amazonaws.com", "sqldb", "csit314project", "mydb");
-
-		if (!$con) 
-		{
-			echo "Not Connected To Server";
-		}
+		$host = "some.link.to.rds";
+			$dbusername = "dbusername";
+			$dbpassword = "password";
+			$dbname = "dbname";
+		// Because MySQL Port is 3306
+	        $port = "3306";
+	        
+			$con = mysqli_connect ($host, $dbusername, $dbpassword, $dbname, $port);
 		
-		if (!mysqli_select_db($con, "mydb")) 
-		{
-			echo "Database Not Selected";
-		}
+			if (!$con) 
+			{
+				echo "Not Connected To Server";
+			}
+			
+			if (!mysqli_select_db($con, "mydb")) 
+			{
+				echo "Database Not Selected";
+			}
 
 		$sql = "SELECT bugReportType,bugReportID,bugReportStatus,bugReportTrackingStatus FROM bugReport WHERE bugReportID = '$bugReportID'";
 		$results = mysqli_query($con,$sql);
@@ -603,17 +641,24 @@ class bugReport
 
 		$bugReportID = $view_details->getBugReportID();
 		
-		$con = mysqli_connect("mydb.c2k9br7f0jdv.ap-southeast-1.rds.amazonaws.com", "sqldb", "csit314project", "mydb");
-
-		if (!$con) 
-		{
-			echo "Not Connected To Server";
-		}
+		$host = "some.link.to.rds";
+			$dbusername = "dbusername";
+			$dbpassword = "password";
+			$dbname = "dbname";
+		// Because MySQL Port is 3306
+	        $port = "3306";
+	        
+			$con = mysqli_connect ($host, $dbusername, $dbpassword, $dbname, $port);
 		
-		if (!mysqli_select_db($con, "mydb")) 
-		{
-			echo "Database Not Selected";
-		}
+			if (!$con) 
+			{
+				echo "Not Connected To Server";
+			}
+			
+			if (!mysqli_select_db($con, "mydb")) 
+			{
+				echo "Database Not Selected";
+			}
 
 		$sql = "SELECT bugReportDesc,bugReportID FROM bugReport WHERE bugReportID = '$bugReportID'";
 		$results = mysqli_query($con,$sql);
@@ -633,17 +678,24 @@ class bugReport
 
 		$bugReportID = $view_comments->getBugReportID();
 	        
-		$con = mysqli_connect("mydb.c2k9br7f0jdv.ap-southeast-1.rds.amazonaws.com", "sqldb", "csit314project", "mydb");
-
-		if (!$con) 
-		{
-			echo "Not Connected To Server";
-		}
+		$host = "some.link.to.rds";
+			$dbusername = "dbusername";
+			$dbpassword = "password";
+			$dbname = "dbname";
+		// Because MySQL Port is 3306
+	        $port = "3306";
+	        
+			$con = mysqli_connect ($host, $dbusername, $dbpassword, $dbname, $port);
 		
-		if (!mysqli_select_db($con, "mydb")) 
-		{
-			echo "Database Not Selected";
-		}
+			if (!$con) 
+			{
+				echo "Not Connected To Server";
+			}
+			
+			if (!mysqli_select_db($con, "mydb")) 
+			{
+				echo "Database Not Selected";
+			}
 
 		$sql = "SELECT bugReportCommentID,bugReportComment,bugReportUserID,bugReportID FROM bugReportComment WHERE bugReportID = '$bugReportID'";
 		$results = mysqli_query($con,$sql);
@@ -665,18 +717,24 @@ class bugReport
 	{
 		global $db, $bugReportTitle, $bugReportType, $bugReportDesc, $bugReportStatus, $errors;
 
-		$con = mysqli_connect("mydb.c2k9br7f0jdv.ap-southeast-1.rds.amazonaws.com", "sqldb", "csit314project", "mydb");
-
-		if (!$con) 
-		{
-			echo "Not Connected To Server";
-		}
+		$host = "some.link.to.rds";
+			$dbusername = "dbusername";
+			$dbpassword = "password";
+			$dbname = "dbname";
+		// Because MySQL Port is 3306
+	        $port = "3306";
+	        
+			$con = mysqli_connect ($host, $dbusername, $dbpassword, $dbname, $port);
+		
+			if (!$con) 
+			{
+				echo "Not Connected To Server";
+			}
 			
-		if (!mysqli_select_db($con, "mydb")) 
-		{
-			echo "Database Not Selected";
-		}
-
+			if (!mysqli_select_db($con, "mydb")) 
+			{
+				echo "Database Not Selected";
+			}
 		$developerInbox = new bugReport();
 		$developerInbox->setBugReportAssigneeID($_SESSION['userID']['userID']);
 		//$developerInbox->setBugReportTrackingStatus($_POST['keywords']);
@@ -722,23 +780,24 @@ class bugReport
 
 	public function updateDeveloperInboxEntity()
 	{
-		$host = "mydb.c2k9br7f0jdv.ap-southeast-1.rds.amazonaws.com";
-		$dbusername = "sqldb";
-		$dbpassword = "csit314project";
-		$dbname = "mydb";
-        $port = "3306";
-        
-		$conn = mysqli_connect ($host, $dbusername, $dbpassword, $dbname, $port);
-	
-		if (!$conn) 
-		{
-			echo "Not Connected To Server";
-		}
+		$host = "some.link.to.rds";
+			$dbusername = "dbusername";
+			$dbpassword = "password";
+			$dbname = "dbname";
+		// Because MySQL Port is 3306
+	        $port = "3306";
+	        
+			$conn = mysqli_connect ($host, $dbusername, $dbpassword, $dbname, $port);
 		
-		if (!mysqli_select_db($conn, "mydb")) 
-		{
-			echo "Database Not Selected";
-		}
+			if (!$conn) 
+			{
+				echo "Not Connected To Server";
+			}
+			
+			if (!mysqli_select_db($conn, "mydb")) 
+			{
+				echo "Database Not Selected";
+			}
 	    
 	    $developerUpdateInbox = new bugReport();
 		$developerUpdateInbox->setBugReportID($_POST['bugReportID']);
@@ -793,23 +852,24 @@ class bugReport
 
 	public function monthlyReportEntity()
 	{
-		$host = "mydb.c2k9br7f0jdv.ap-southeast-1.rds.amazonaws.com";
-		$dbusername = "sqldb";
-		$dbpassword = "csit314project";
-		$dbname = "mydb";
-	    $port = "3306";
+		$host = "some.link.to.rds";
+			$dbusername = "dbusername";
+			$dbpassword = "password";
+			$dbname = "dbname";
+		// Because MySQL Port is 3306
+	        $port = "3306";
 	        
-		$con = mysqli_connect ($host, $dbusername, $dbpassword, $dbname, $port);
+			$con = mysqli_connect ($host, $dbusername, $dbpassword, $dbname, $port);
 		
-		if (!$con) 
-		{
-			echo "Not Connected To Server";
-		}
+			if (!$con) 
+			{
+				echo "Not Connected To Server";
+			}
 			
-		if (!mysqli_select_db($con, "mydb")) 
-		{
-			echo "Database Not Selected";
-		}
+			if (!mysqli_select_db($con, "mydb")) 
+			{
+				echo "Database Not Selected";
+			}
 
 		$search = $_POST['submit'];
 		$month = $_POST['month'];
@@ -902,23 +962,24 @@ class bugReport
 
 	public function countReportEntity()
 	{
-		$host = "mydb.c2k9br7f0jdv.ap-southeast-1.rds.amazonaws.com";
-		$dbusername = "sqldb";
-		$dbpassword = "csit314project";
-		$dbname = "mydb";
-        $port = "3306";
-        
-		$con = mysqli_connect ($host, $dbusername, $dbpassword, $dbname, $port);
-	
-		if (!$con) 
-		{
-			echo "Not Connected To Server";
-		}
+		$host = "some.link.to.rds";
+			$dbusername = "dbusername";
+			$dbpassword = "password";
+			$dbname = "dbname";
+		// Because MySQL Port is 3306
+	        $port = "3306";
+	        
+			$con = mysqli_connect ($host, $dbusername, $dbpassword, $dbname, $port);
 		
-		if (!mysqli_select_db($con, "mydb")) 
-		{
-			echo "Database Not Selected";
-		}
+			if (!$con) 
+			{
+				echo "Not Connected To Server";
+			}
+			
+			if (!mysqli_select_db($con, "mydb")) 
+			{
+				echo "Database Not Selected";
+			}
 	        
 	    $search = $_POST['submit'];
 	   	$month = $_POST['month'];
@@ -937,17 +998,24 @@ class bugReport
 
 		$search = $_POST['search'];
 
-		$con = mysqli_connect("mydb.c2k9br7f0jdv.ap-southeast-1.rds.amazonaws.com", "sqldb", "csit314project", "mydb");
-
-		if (!$con) 
-		{
-			echo "Not Connected To Server";
-		}
+		$host = "some.link.to.rds";
+			$dbusername = "dbusername";
+			$dbpassword = "password";
+			$dbname = "dbname";
+		// Because MySQL Port is 3306
+	        $port = "3306";
+	        
+			$con = mysqli_connect ($host, $dbusername, $dbpassword, $dbname, $port);
 		
-		if (!mysqli_select_db($con, "mydb")) 
-		{
-			echo "Database Not Selected";
-		}
+			if (!$con) 
+			{
+				echo "Not Connected To Server";
+			}
+			
+			if (!mysqli_select_db($con, "mydb")) 
+			{
+				echo "Database Not Selected";
+			}
 
 		$sql = "SELECT bugReportID, bugReportTitle,username, bugReportStatus,bugReportUserID FROM bugReport INNER JOIN user ON bugReport.bugReportAssigneeID = user.userID WHERE bugReportID LIKE '%".$search."%' OR  bugReportTitle LIKE '%".$search."%' OR  username LIKE '%".$search."%' OR  bugReportStatus LIKE '%".$search."%' OR bugReportUserID LIKE '%".$search."%' ORDER BY bugReportStatus DESC,bugReportID ASC";
 
@@ -1028,17 +1096,24 @@ class bugReport
 	{
 		global $db, $bugReportTitle, $bugReportType, $bugReportDesc, $bugReportStatus, $errors;
 
-		$con = mysqli_connect("mydb.c2k9br7f0jdv.ap-southeast-1.rds.amazonaws.com", "sqldb", "csit314project", "mydb");
-
-		if (!$con) 
-		{
-			echo "Not Connected To Server";
-		}
+		$host = "some.link.to.rds";
+			$dbusername = "dbusername";
+			$dbpassword = "password";
+			$dbname = "dbname";
+		// Because MySQL Port is 3306
+	        $port = "3306";
+	        
+			$con = mysqli_connect ($host, $dbusername, $dbpassword, $dbname, $port);
 		
-		if (!mysqli_select_db($con, "mydb")) 
-		{
-			echo "Database Not Selected";
-		}
+			if (!$con) 
+			{
+				echo "Not Connected To Server";
+			}
+			
+			if (!mysqli_select_db($con, "mydb")) 
+			{
+				echo "Database Not Selected";
+			}
 
 	    $sql = "SELECT bugReportID, bugReportTitle,username, bugReportStatus,bugReportUserID FROM bugReport INNER JOIN user ON bugReport.bugReportAssigneeID = user.userID ORDER BY bugReportStatus DESC,bugReportID ASC";
 	        
@@ -1118,23 +1193,24 @@ class bugReport
 
 	public function deleteReportEntity()
 	{
-        $host = "mydb.c2k9br7f0jdv.ap-southeast-1.rds.amazonaws.com";
-	    $dbusername = "sqldb";
-	    $dbpassword = "csit314project";
-	    $dbname = "mydb";
-	    $port = "3306";
+        	$host = "some.link.to.rds";
+			$dbusername = "dbusername";
+			$dbpassword = "password";
+			$dbname = "dbname";
+		// Because MySQL Port is 3306
+	        $port = "3306";
 	        
-	    $conn = mysqli_connect ($host, $dbusername, $dbpassword, $dbname, $port);
-	    
-	    if (!$conn) 
-	    {
-	        echo "Not Connected To Server";
-	    }
-	        
-	    if (!mysqli_select_db($conn, "mydb")) 
-	    {
-	        echo "Database Not Selected";
-	    }
+			$con = mysqli_connect ($host, $dbusername, $dbpassword, $dbname, $port);
+		
+			if (!$con) 
+			{
+				echo "Not Connected To Server";
+			}
+			
+			if (!mysqli_select_db($con, "mydb")) 
+			{
+				echo "Database Not Selected";
+			}
 	            
 	    $search = $_POST['submit'];
 	    $bugReportTrackingStatus = $_POST['bugReportTrackingStatus'];
@@ -1143,9 +1219,9 @@ class bugReport
 
 	    $sql = "DELETE FROM bugReport WHERE bugReportID = '$bugReportID'";
 	        
-	    $results = mysqli_query($conn,$sql);
+	    $results = mysqli_query($con,$sql);
 
-	    if (!mysqli_query($conn, $sql)) 
+	    if (!mysqli_query($con, $sql)) 
 	    {
 	        echo "<br />";
 	        echo "<h3>Records Not Updated</h3>";
@@ -1158,23 +1234,24 @@ class bugReport
 
     public function updateReportEntity()
     {
-        $host = "mydb.c2k9br7f0jdv.ap-southeast-1.rds.amazonaws.com";
-		$dbusername = "sqldb";
-		$dbpassword = "csit314project";
-		$dbname = "mydb";
-	    $port = "3306";
+        $host = "some.link.to.rds";
+			$dbusername = "dbusername";
+			$dbpassword = "password";
+			$dbname = "dbname";
+		// Because MySQL Port is 3306
+	        $port = "3306";
 	        
-		$conn = mysqli_connect ($host, $dbusername, $dbpassword, $dbname, $port);
+			$con = mysqli_connect ($host, $dbusername, $dbpassword, $dbname, $port);
 		
-		if (!$conn) 
-		{
-			echo "Not Connected To Server";
-		}
+			if (!$con) 
+			{
+				echo "Not Connected To Server";
+			}
 			
-		if (!mysqli_select_db($conn, "mydb")) 
-		{
-			echo "Database Not Selected";
-		}
+			if (!mysqli_select_db($con, "mydb")) 
+			{
+				echo "Database Not Selected";
+			}
 		        
 		$search = $_POST['submit'];
 		$bugReportTrackingStatus = $_POST['bugReportTrackingStatus'];
@@ -1185,12 +1262,12 @@ class bugReport
 		if ($bugReportTrackingStatus == "NEW") 
 		{
 			$sql = "UPDATE bugReport SET bugReportTrackingStatus ='$bugReportTrackingStatus', bugReportAssigneeID='$assign' WHERE bugReportID ='$bugReportID'";
-			$results = mysqli_query($conn, $sql);
+			$results = mysqli_query($con, $sql);
 				
 			$sql1 = "UPDATE bugReport SET bugReportID WHERE bugReportID = '$bugReportID'";
-			$results2 = mysqli_query($conn, $sql1);
+			$results2 = mysqli_query($con, $sql1);
 				
-			if (!mysqli_query($conn, $sql)) 
+			if (!mysqli_query($con, $sql)) 
 			{
 				echo "<br />";
 				echo "<h3>Records Not Updated</h3>";
@@ -1204,10 +1281,10 @@ class bugReport
 		else
 		{
 		    $sql = "UPDATE bugReport SET bugReportTrackingStatus ='$bugReportTrackingStatus', bugReportAssigneeID='$assign' WHERE bugReportID ='$bugReportID'";
-			$results = mysqli_query($conn, $sql);
+			$results = mysqli_query($con, $sql);
 				
 			$sql1 = "UPDATE bugReport SET bugReportID WHERE bugReportID = '$bugReportID'";
-			$results2 = mysqli_query($conn, $sql1);
+			$results2 = mysqli_query($con, $sql1);
 				
 			if (!mysqli_query($conn, $sql)) 
 			{
@@ -1223,23 +1300,24 @@ class bugReport
 
 	public function updateReviewerInboxEntity()
 	{
-		$host = "mydb.c2k9br7f0jdv.ap-southeast-1.rds.amazonaws.com";
-		$dbusername = "sqldb";
-		$dbpassword = "csit314project";
-		$dbname = "mydb";
-	    $port = "3306";
+		$host = "some.link.to.rds";
+			$dbusername = "dbusername";
+			$dbpassword = "password";
+			$dbname = "dbname";
+		// Because MySQL Port is 3306
+	        $port = "3306";
 	        
-		$conn = mysqli_connect ($host, $dbusername, $dbpassword, $dbname, $port);
+			$con = mysqli_connect ($host, $dbusername, $dbpassword, $dbname, $port);
 		
-		if (!$conn) 
-		{
-			echo "Not Connected To Server";
-		}
+			if (!$con) 
+			{
+				echo "Not Connected To Server";
+			}
 			
-		if (!mysqli_select_db($conn, "mydb")) 
-		{
-			echo "Database Not Selected";
-		}
+			if (!mysqli_select_db($con, "mydb")) 
+			{
+				echo "Database Not Selected";
+			}
 		        
 		$search = $_POST['submit'];
 		$bugReportTrackingStatus = $_POST['bugReportTrackingStatus'];
@@ -1248,12 +1326,12 @@ class bugReport
 		if ($bugReportTrackingStatus == "Fixed") 
 		{
 			$sql = "UPDATE bugReport SET bugReportTrackingStatus ='$bugReportTrackingStatus' WHERE bugReportID ='$bugReportID'";
-			$results = mysqli_query($conn, $sql);
+			$results = mysqli_query($con, $sql);
 				
 			$sql1 = "UPDATE bugReport SET bugReportID WHERE bugReportID = '$bugReportID'";
-			$results2 = mysqli_query($conn, $sql1);
+			$results2 = mysqli_query($con, $sql1);
 				
-			if (!mysqli_query($conn, $sql)) 
+			if (!mysqli_query($con, $sql)) 
 			{
 				echo "<br />";
 				echo "<h3>Records Not Updated</h3>";
@@ -1267,12 +1345,12 @@ class bugReport
 		else
 		{
 		    $sql = "UPDATE bugReport SET bugReportTrackingStatus ='$bugReportTrackingStatus' WHERE bugReportID ='$bugReportID'";
-			$results = mysqli_query($conn, $sql);
+			$results = mysqli_query($con, $sql);
 				
 			$sql1 = "UPDATE bugReport SET bugReportID WHERE bugReportID = '$bugReportID'";
-			$results2 = mysqli_query($conn, $sql1);
+			$results2 = mysqli_query($con, $sql1);
 				
-			if (!mysqli_query($conn, $sql)) 
+			if (!mysqli_query($con, $sql)) 
 			{
 				echo "<br />";
 				echo "<h3>Status Not Updated</h3>";
@@ -1288,17 +1366,24 @@ class bugReport
 	{
 		global $db, $bugReportTitle, $bugReportType, $bugReportDesc, $bugReportStatus, $errors;
 
-		$con = mysqli_connect("mydb.c2k9br7f0jdv.ap-southeast-1.rds.amazonaws.com", "sqldb", "csit314project", "mydb");
-
-		if (!$con) 
-		{
-			echo "Not Connected To Server";
-		}
+		$host = "some.link.to.rds";
+			$dbusername = "dbusername";
+			$dbpassword = "password";
+			$dbname = "dbname";
+		// Because MySQL Port is 3306
+	        $port = "3306";
+	        
+			$con = mysqli_connect ($host, $dbusername, $dbpassword, $dbname, $port);
 		
-		if (!mysqli_select_db($con, "mydb")) 
-		{
-			echo "Database Not Selected";
-		}
+			if (!$con) 
+			{
+				echo "Not Connected To Server";
+			}
+			
+			if (!mysqli_select_db($con, "mydb")) 
+			{
+				echo "Database Not Selected";
+			}
 
 		$sql = "SELECT bugReportID, bugReportTitle,bugReportStatus,bugReportTrackingStatus FROM bugReport WHERE bugReportTrackingStatus='New' AND bugReportAssigneeID='0'";
 	        
@@ -1339,17 +1424,24 @@ class bugReport
 	{
 		global $db, $bugReportTitle, $bugReportType, $bugReportDesc, $bugReportStatus, $errors;
 
-		$con = mysqli_connect("mydb.c2k9br7f0jdv.ap-southeast-1.rds.amazonaws.com", "sqldb", "csit314project", "mydb");
-
-		if (!$con) 
-		{
-			echo "Not Connected To Server";
-		}
+		$host = "some.link.to.rds";
+			$dbusername = "dbusername";
+			$dbpassword = "password";
+			$dbname = "dbname";
+		// Because MySQL Port is 3306
+	        $port = "3306";
+	        
+			$con = mysqli_connect ($host, $dbusername, $dbpassword, $dbname, $port);
 		
-		if (!mysqli_select_db($con, "mydb")) 
-		{
-			echo "Database Not Selected";
-		}
+			if (!$con) 
+			{
+				echo "Not Connected To Server";
+			}
+			
+			if (!mysqli_select_db($con, "mydb")) 
+			{
+				echo "Database Not Selected";
+			}
 
 		$sql = "SELECT bugReportID, bugReportTitle,bugReportStatus,bugReportTrackingStatus,bugReportKeywords,count(bugReportTitle) FROM bugReport GROUP BY bugReportTitle HAVING COUNT(bugReportTitle) > 1";
 	        
@@ -1392,17 +1484,24 @@ class bugReport
 	{
 		global $db, $bugReportTitle, $bugReportType, $bugReportDesc, $bugReportStatus, $errors;
 
-		$con = mysqli_connect("mydb.c2k9br7f0jdv.ap-southeast-1.rds.amazonaws.com", "sqldb", "csit314project", "mydb");
-
-		if (!$con) 
-		{
-			echo "Not Connected To Server";
-		}
+		$host = "some.link.to.rds";
+			$dbusername = "dbusername";
+			$dbpassword = "password";
+			$dbname = "dbname";
+		// Because MySQL Port is 3306
+	        $port = "3306";
+	        
+			$con = mysqli_connect ($host, $dbusername, $dbpassword, $dbname, $port);
 		
-		if (!mysqli_select_db($con, "mydb")) 
-		{
-			echo "Database Not Selected";
-		}
+			if (!$con) 
+			{
+				echo "Not Connected To Server";
+			}
+			
+			if (!mysqli_select_db($con, "mydb")) 
+			{
+				echo "Database Not Selected";
+			}
 
 		$sql = "SELECT bugReportID, bugReportTitle,bugReportStatus,bugReportKeywords,bugReportTrackingStatus FROM bugReport WHERE bugReportTrackingStatus='Verified' and bugReportStatus='open'";
 	        
@@ -1442,17 +1541,24 @@ class bugReport
 	{
 		global $db, $bugReportTitle, $bugReportType, $bugReportDesc, $bugReportStatus, $errors;
 
-		$con = mysqli_connect("mydb.c2k9br7f0jdv.ap-southeast-1.rds.amazonaws.com", "sqldb", "csit314project", "mydb");
-
-		if (!$con) 
-		{
-			echo "Not Connected To Server";
-		}
+		$host = "some.link.to.rds";
+			$dbusername = "dbusername";
+			$dbpassword = "password";
+			$dbname = "dbname";
+		// Because MySQL Port is 3306
+	        $port = "3306";
+	        
+			$con = mysqli_connect ($host, $dbusername, $dbpassword, $dbname, $port);
 		
-		if (!mysqli_select_db($con, "mydb")) 
-		{
-			echo "Database Not Selected";
-		}
+			if (!$con) 
+			{
+				echo "Not Connected To Server";
+			}
+			
+			if (!mysqli_select_db($con, "mydb")) 
+			{
+				echo "Database Not Selected";
+			}
 
 		$assigned = $_SESSION['userID']['userID'];
 		$sql = "SELECT bugReportID, bugReportTitle,bugReportStatus,bugReportTrackingStatus,bugReportAssigneeID FROM bugReport WHERE bugReportTrackingStatus='Fixed'";
