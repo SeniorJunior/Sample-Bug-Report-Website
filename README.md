@@ -17,6 +17,7 @@ Throughout the lifecycle of a bug, users can participate in discussing how to fi
 
 ### Folders
 ----
+CODES : 
 - images (Store all the neccessary css images)
 - nbproject
 - vendor (for javascript)
