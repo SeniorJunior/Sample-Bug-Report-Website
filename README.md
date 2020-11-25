@@ -21,7 +21,9 @@ CODES :
 - images (Store all the neccessary css images)
 - nbproject
 - vendor (for javascript)
-- PHP files (I haven't been able to properly adjust and separate them into controller, boundary or entity folder to make it look neater; sorry)
+- boundary (Code for boundary classes)
+- controller (Code for controller classes)
+- entity (Code for entity class)
 
 
 
