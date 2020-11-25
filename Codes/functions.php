@@ -2,7 +2,7 @@
 session_start();
 
 // Connect to database
-$db = mysqli_connect("mydb.c2k9br7f0jdv.ap-southeast-1.rds.amazonaws.com", "sqldb", "csit314project", "mydb");
+$db = mysqli_connect("link.to.rds.com", "dbusername", "dbpassword", "dbname");
 
 // Escape string
 function e($val)
