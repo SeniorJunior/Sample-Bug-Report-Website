@@ -144,45 +144,5 @@ class User
 		}
 	}
 }
-	/*DEFINE ('host', "csit314db.c2k9br7f0jdv.ap-southeast-1.rds.amazonaws.com");
-	DEFINE ('dbusername', 'sqldb');
-	DEFINE ('dbpassword', 'csit314project');
-	DEFINE ('dbname', 'mydb');
-	DEFINE ('port', '3306');
-
-	class DB_con
-	{
-		public $connection;
-		function __construct()
-		{
-			$this->connection = new mysqli(host, dbusername, dbpassword, dbname, port);
-
-			if ($this->connection->connect_error) die('Database error -> '. $this->connection->connection_error);
-		}
-
-		function ret_obj()
-		{
-			return $this->connection;
-		}
-	}
-
-class User
-{
-	private $dbhost = $_SERVER['csit314db.c2k9br7f0jdv.ap-southeast-1.rds.amazonaws.com'];
-	private $dbport = $_SERVER['3306'];
-	private $dbuser = $_SERVER['sqldb'];
-	private $dbpass = $_SERVER['csit314minions']
-	private $dbName = $_SERVER['mydb'];
-	private $charset = 'utf8';
-
-	protected function connect()
-	{
-		$dsn = 'mysql:dbhost=' . $this->dbhost . ';dbport' . $this->dbport . ';dbname=' . $this->dbName;
-		$pdo = new PDO($dsn, $this->user, $this->pwd);
-		$pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-		return $pdo;
-	}
-
-}*/
-
+	
 ?>
