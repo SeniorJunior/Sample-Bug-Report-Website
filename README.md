@@ -17,7 +17,7 @@ Throughout the lifecycle of a bug, users can participate in discussing how to fi
 
 ### Class diagram
 ----
-Filename : minion_classDiagram_1 and minion_classDiagram_2
+Filename : minion_classDiagram_i.pdf and minion_classDiagram_ii.pdf
 
 ### Folders
 ----
