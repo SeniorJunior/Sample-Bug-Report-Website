@@ -7,6 +7,7 @@ This is a project that is created to showcase the usage of Object Oriented in PH
 The project name is called Minion.
 
 Front end : HTML5, CSS, Javascript
+
 Backend : PHP, MYSQL
 
 ### Details
