@@ -56,7 +56,24 @@ class bugReportComment
 	{
 		global $db, $bugReportUserID, $errors, $bugReportCommentID, $bugReportID, $bugReportComment;
 
-		$con = mysqli_connect("mydb.c2k9br7f0jdv.ap-southeast-1.rds.amazonaws.com", "sqldb", "csit314project", "mydb");
+		$host = "some.link.to.rds";
+			$dbusername = "dbusername";
+			$dbpassword = "password";
+			$dbname = "dbname";
+		// Because MySQL Port is 3306
+	        $port = "3306";
+	        
+			$conn = mysqli_connect ($host, $dbusername, $dbpassword, $dbname, $port);
+		
+			if (!$conn) 
+			{
+				echo "Not Connected To Server";
+			}
+			
+			if (!mysqli_select_db($conn, "mydb")) 
+			{
+				echo "Database Not Selected";
+			}
 
 		$new_comment = new bugReportComment();
 		$new_comment->setBugReportID($_POST['bugReportID']);
